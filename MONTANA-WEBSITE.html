@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Hotel Website</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #c09f77;
+            color: #444;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            font-size: 35px;
+            letter-spacing: 1px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ecf0f1;
+        }
+        main {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .slider {
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin: 20px auto;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        #reservation .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ccc; /* Add border */
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        #reservation h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #reservation label {
+            font-size: 16px;
+            color: #555;
+            margin-top: 10px;
+            display: block;
+        }
+
+        #reservation input[type="text"],
+        #reservation input[type="email"],
+        #reservation input[type="date"],
+        #reservation input[type="number"],
+        #reservation select,
+        #reservation textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        #reservation textarea {
+            resize: vertical;
+        }
+
+        #reservation button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        #reservation button:hover {
+            background-color: #45a049;
+        }
+
+        #reservation .message {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .date-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .date-field {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .date-field:last-child {
+            margin-right: 0;
+        }
+        #contact .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        #contact h2, #contact h3 {
+            color: #333;
+            text-align: center;
+        }
+
+        #contact p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        #contact label {
+            font-size: 16px;
+            color: #555;
+            margin-top: 10px;
+            display: block;
+        }
+
+        #contact input[type="text"],
+        #contact input[type="email"],
+        #contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        #contact textarea {
+            resize: vertical;
+        }
+
+        #contact button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        #contact button:hover {
+            background-color: #45a049;
+        }
+
+        #contact .message {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            display: none;
+        }
+
+        #contact .contact-details {
+            margin-bottom: 20px;
+        }
+
+        #contact a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        #contact a:hover {
+            text-decoration: underline;
+        }
+        #blog .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        #blog h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        #blog p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .blog-posts {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .blog-post {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .blog-post h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .blog-date {
+            font-size: 12px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .load-more {
+            display: block;
+            margin: 20px auto;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .load-more:hover {
+            background-color: #45a049;
+        }
+        .nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .nav button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .nav button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .gallery-image {
+            width: 48%;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .amenities {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .amenity {
+            width: 30%;
+        }
+    </style>
+    <script>
+        function navigate(page) {
+            document.querySelectorAll('section').forEach(section => section.style.display = 'none');
+            document.getElementById(page).style.display = 'block';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelector('.slides');
+            const images = document.querySelectorAll('.slides img');
+            const totalImages = images.length;
+
+            let currentIndex = 0;
+
+            document.getElementById('next').addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalImages;
+                slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            });
+         
+            document.getElementById("contact-form").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent the form from submitting and refreshing the page
+                
+                // Show confirmation message
+                document.getElementById("confirmation-message-contact").style.display = "block";
+                
+                // Optionally, reset the form after submission
+                document.getElementById("contact-form").reset();
+            });
+
+            document.getElementById('prev').addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Luxury Hotel</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="navigate('homepage')">Home</a></li>
+                <li><a href="#" onclick="navigate('blog')">Blog</a></li>
+                <li><a href="#" onclick="navigate('reservation')">Reservation</a></li>
+                <li><a href="#" onclick="navigate('contact')">Contact</a></li>
+                <li><a href="#" onclick="navigate('about')">About Us</a></li>
+                <li><a href="#" onclick="navigate('gallery')">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="homepage">
+            <h2>Welcome to Our Luxury Hotel</h2>
+            <p>Your comfort and satisfaction are our top priorities. Experience the elegance and sophistication of our hotel, where every detail is designed to provide you with an unforgettable stay.</p>
+            
+            <h3>Why Choose Us?</h3>
+            <ul>
+                <li>🌟 <strong>Luxurious Accommodations:</strong> Enjoy beautifully designed rooms and suites equipped with modern amenities.</li>
+                <li>🍽️ <strong>Fine Dining:</strong> Savor exquisite dishes prepared by our world-class chefs in our on-site restaurant.</li>
+                <li>🏊‍♂️ <strong>Relaxing Spa:</strong> Indulge in rejuvenating treatments at our luxurious spa, designed to pamper you.</li>
+                <li>🌆 <strong>Stunning Views:</strong> Experience breathtaking city views from our rooftop terrace.</li>
+                <li>🚗 <strong>Convenient Location:</strong> Located in the heart of the city, close to major attractions and business districts.</li>
+            </ul>
+        
+            <h3>Special Offers</h3>
+            <p>Take advantage of our exclusive packages:</p>
+            <ul>
+                <li>💼 <strong>Business Package:</strong> Includes complimentary meeting room access and a business-class suite.</li>
+                <li>❤️ <strong>Romantic Getaway:</strong> A special package for couples, featuring a private dinner and spa session.</li>
+                <li>👨‍👩‍👧‍👦 <strong>Family Fun:</strong> Enjoy discounts on adjoining rooms and access to kid-friendly activities.</li>
+            </ul>
+        
+            <div class="testimonial">
+                <h3>What Our Guests Say</h3>
+                <blockquote>
+                    "An unforgettable experience! The service was exceptional, the ambiance was perfect, and every detail exceeded our expectations." 
+                    <br>- <strong>Jessica R.</strong>
+                </blockquote>
+            </div>
+        
+            <h3>Discover More</h3>
+            <p>Explore our other pages:</p>
+            <ul>
+                <li><a href="#" onclick="navigate('about')">Learn more about us</a></li>
+                <li><a href="#" onclick="navigate('gallery')">View our stunning gallery</a></li>
+                <li><a href="#" onclick="navigate('reservation')">Book your stay</a></li>
+            </ul>
+        
+            <h3>Take a Virtual Tour</h3>
+            <p>Step into the world of luxury with our virtual tour:</p>
+            <video controls width="80%">
+                <source src="C:\Users\Shiela Montana\Downloads\Hotel Video in Emerald White Gold Aspirational Elegance Style.mp4" type="video/mp4">
+                Your browser does not support the video tag. 
+            </video>
+        
+            <h3>Featured Amenities</h3>
+            <div class="amenities">
+                <div class="amenity">
+                    <h4>🌊 Infinity Pool</h4>
+                    <p>Relax in our rooftop infinity pool with breathtaking views.</p>
+                </div>
+                <div class="amenity">
+                    <h4>🍸 Rooftop Lounge</h4>
+                    <p>Unwind with handcrafted cocktails at our exclusive rooftop bar.</p>
+                </div>
+                <div class="amenity">
+                    <h4>🎶 Live Entertainment</h4>
+                    <p>Enjoy live music and performances every weekend.</p>       
+            <div class="slider">
+                <div class="slides">
+                    <img src="C:\Users\Shiela Montana\Downloads\Hotel rooms Interior design proposals - Ahmed Genedy.jpg"/600x400?text=Luxury+Hotel+1">
+                    <img src="C:\Users\Shiela Montana\Downloads\Download premium image of Luxury airport lounge design plant architecture building_  by Ketsarin about palm tree, plant, tree, furniture, and marble 13070107.jpg"/600x400?text=Luxury+Hotel+2">
+                    <img src="C:\Users\Shiela Montana\Downloads\FOUR SEASONS HOTEL BANGKOK II - PanoramicStudio _.jpg"/600x400?text=Luxury+Hotel+3">
+                    <img src="C:\Users\Shiela Montana\Downloads\The Politan Aqua by Everland.jpg"/600x400?text=Luxury+Hotel+3">
+                </div>
+                <div class="nav">
+                    <button id="prev">&lt;</button>
+                    <button id="next">&gt;</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" style="display: none;">
+            <div class="container">
+                <h2>Our Blog</h2>
+                <p>Stay updated with the latest news, tips, and stories from our luxury hotel and the world of travel and hospitality.</p>
+        
+                <div id="blog-posts" class="blog-posts">
+                    <!-- Blog posts will be dynamically loaded here -->
+                </div>
+        
+                <button id="load-more" class="load-more">Load More Posts</button>
+            </div>
+        </section>
+        
+
+            <section id="reservation" style="display: none;">
+                <div class="container">
+                    <h2>Hotel Reservation Form</h2>
+                    <form id="reservation-form">
+                        <label for="full-name">Full Name:</label>
+                        <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required>
+            
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            
+                        <label for="phone">Phone Number:</label>
+                        <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+            
+                        <div class="date-container">
+                            <div class="date-field">
+                                <label for="check-in-date">Check-in Date:</label>
+                                <input type="date" id="check-in-date" name="check-in-date" required>
+                            </div>
+                            <div class="date-field">
+                                <label for="check-out-date">Check-out Date:</label>
+                                <input type="date" id="check-out-date" name="check-out-date" required>
+                            </div>
+                        </div>
+            
+                        <label for="room-type">Room Type:</label>
+                        <select id="room-type" name="room-type" required>
+                            <option value="single">Single</option>
+                            <option value="double">Double</option>
+                            <option value="suite">Suite</option>
+                        </select>
+            
+                        <label for="guests">Number of Guests:</label>
+                        <input type="number" id="guests" name="guests" min="1" max="10" placeholder="Enter the number of guests" required>
+            
+                        <label for="special-requests">Special Requests:</label>
+                        <textarea id="special-requests" name="special-requests" rows="4" placeholder="Any special requirements or requests?"></textarea>
+            
+                        <button type="submit">Book Reservation</button>
+                    </form>
+            
+                    <div id="confirmation-message" class="message">
+                        Your reservation has been successfully submitted! We will get back to you soon.
+                    </div>
+                </div>
+            </section>
+            
+        <section id="contact" style="display: none;">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>If you have any questions, feedback, or inquiries, please don't hesitate to get in touch with us. We're here to help!</p>
+        
+                <div class="contact-details">
+                    <h3>Contact Information</h3>
+                    <p><strong>📞 Phone:</strong> +1-123-456-7890</p>
+                    <p><strong>✉️ Email:</strong> support@luxuryhotel.com</p>
+                    <p><strong>📍 Address:</strong> 123 Luxury Street, Cityville, Country</p>
+                </div>
+        
+                <h3>Send Us a Message</h3>
+                <form id="contact-form">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" placeholder="Enter the subject" required>
+        
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+        
+                    <button type="submit">Send Message</button>
+                </form>
+        
+                <div id="confirmation-message-contact" class="message">
+                    Your message has been successfully sent! We'll get back to you shortly.
+                </div>
+        
+                <h3>Follow Us</h3>
+                <p>
+                    <a href="#" target="_blank">🌐 Website</a> |
+                    <a href="#" target="_blank">📘 Facebook</a> |
+                    <a href="#" target="_blank">🐦 Twitter</a> |
+                    <a href="#" target="_blank">📸 Instagram</a>
+                </p>
+            </div>
+        </section>
+        
+        <section id="about" style="display: none;">
+            <h2>About Us</h2>
+            <div class="about-us-container">
+                <p>
+                    Welcome to <strong>Luxury Hotel</strong>, where sophistication meets unparalleled comfort. 
+                    Established in <strong>2010</strong>, we have been committed to providing a sanctuary of elegance and luxury for travelers from all over the world.
+                </p>
+                <h3>Our Story</h3>
+                <p>
+                    Nestled in the heart of the city, Luxury Hotel was envisioned as a retreat for those seeking a perfect blend of modern luxury and timeless charm. 
+                    Over the years, we have grown to be recognized for our exquisite design, exceptional hospitality, and personalized services.
+                </p>
+                <h3>Our Mission</h3>
+                <p>
+                    To craft unforgettable experiences that leave a lasting impression. Whether you're here for leisure or business, we strive to provide a haven of tranquility and a seamless journey for every guest.
+                </p>
+                <h3>Our Core Values</h3>
+                <ul>
+                    <li><strong>Excellence:</strong> We are committed to delivering top-notch services that exceed expectations.</li>
+                    <li><strong>Innovation:</strong> Continuously evolving to stay ahead in the industry and offer our guests the latest amenities.</li>
+                    <li><strong>Sustainability:</strong> We care about the planet and incorporate eco-friendly practices in everything we do.</li>
+                    <li><strong>Warmth:</strong> Our team welcomes you with genuine care and attention to detail, making every stay unforgettable.</li>
+                </ul>
+                <h3>Our Facilities</h3>
+                <p>
+                    At Luxury Hotel, we offer state-of-the-art facilities, including a rooftop infinity pool, world-class spa, gourmet dining, and event spaces 
+                    tailored for weddings, conferences, and special occasions.
+                </p>
+                <h3>Meet Our Team</h3>
+                <p>
+                    Behind the scenes, our dedicated team of professionals works tirelessly to ensure your stay is nothing short of perfect. From the front desk 
+                    to housekeeping, every staff member is here to make you feel at home.
+                </p>
+                <h3>Join Us</h3>
+                <p>
+                    Be a part of our story and experience a world where luxury knows no bounds. Whether you're a traveler looking for an escape or a local seeking 
+                    a serene staycation, <strong>Luxury Hotel</strong> is here to welcome you.
+                </p>
+                <h3>Contact Us</h3>
+                <p>
+                    We'd love to hear from you. For inquiries, bookings, or special requests, feel free to <a href="#" onclick="navigate('contact')">contact us</a>.
+                </p>
+            </div>
+        </section>
+        
+        <section id="gallery" style="display: none;">
+            <h2>Gallery</h2>
+            <div class="gallery-container">
+                <img src="C:\Users\Shiela Montana\Downloads\LIBERTY CENTRAL SAIGON CITYPOINT HOTEL - Quân Bảo Võ.jpg" alt="Hotel Image 1" class="gallery-image">
+                <img src="C:\Users\Shiela Montana\Downloads\Travel + Leisure World's Best Awards.jpg" alt="Hotel Image 2" class="gallery-image">
+                <img src="C:\Users\Shiela Montana\Downloads\What Makes Armani Hotel Dubai The World's Most Luxurious Hotel_.jpg" alt="Hotel Image 3" class="gallery-image">
+                <img src="C:\Users\Shiela Montana\Downloads\10 Iconic Movie Hotels You Can Actually Stay In.jpg" alt="Hotel Image 4" class="gallery-image">
+            </div>
+        </section>
+
+        <script>
+            const blogPosts = [
+                {
+                    title: "10 Must-See Attractions Near Our Luxury Hotel",
+                    date: "January 1, 2025",
+                    description: "Discover the top attractions near our hotel that you simply can't miss during your stay.",
+                    image: "path-to-image1.jpg"
+                },
+                {
+                    title: "The Art of Fine Dining: Behind the Scenes at Our Restaurant",
+                    date: "January 5, 2025",
+                    description: "Explore how our world-class chefs create culinary masterpieces for our guests.",
+                    image: "path-to-image2.jpg"
+                },
+                {
+                    title: "Relax and Rejuvenate: A Guide to Our Spa Services",
+                    date: "January 10, 2025",
+                    description: "Learn how you can unwind and pamper yourself with our exclusive spa treatments.",
+                    image: "path-to-image3.jpg"
+                },
+                {
+                    title: "Exclusive Offers for Your Next Stay",
+                    date: "January 15, 2025",
+                    description: "Take advantage of our latest deals and packages designed to make your stay even better.",
+                    image: "path-to-image4.jpg"
+                }
+            ];
+        
+            let postsPerPage = 2;
+            let currentPage = 1;
+        
+            function loadBlogPosts() {
+                const blogContainer = document.getElementById("blog-posts");
+                const start = (currentPage - 1) * postsPerPage;
+                const end = currentPage * postsPerPage;
+        
+                blogPosts.slice(start, end).forEach(post => {
+                    const postElement = document.createElement("div");
+                    postElement.className = "blog-post";
+                    postElement.innerHTML = `
+                           <img src="https://i.pinimg.com/736x/9d/9b/09/9d9b0972388bcc771a89340683dc643a.jpg" alt="${post.title}" class="blog-image">
+                           <h3>${post.title}</h3>
+                           <p class="blog-date">${post.date}</p>
+                           <p>${post.description}</p>
+                    `;
+                    blogContainer.appendChild(postElement);
+                });
+        
+                if (currentPage * postsPerPage >= blogPosts.length) {
+                    document.getElementById("load-more").style.display = "none";
+                }
+        
+                currentPage++;
+            }
+        
+            document.getElementById("load-more").addEventListener("click", loadBlogPosts);
+        
+            // Load the initial set of posts on page load
+            document.addEventListener("DOMContentLoaded", loadBlogPosts);
+        </script>
+        
+    </main>
+    <footer>
+        <p>&copy; 2023 Luxury Hotel. All rights reserved.</p>
+    </footer>
+</body>
+</html>
